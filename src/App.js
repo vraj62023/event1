@@ -13,6 +13,7 @@ function App() {
         <Navbar/>
         <div className="home">
           <Routes>
+            <Route path='/Space-Quiz-Event' element={<Home />} />
             <Route path='/' element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/profile" element={<Profile/>} />
