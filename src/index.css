@@ -1,42 +1,13 @@
-
 *{
   margin: 0;
-  padding: 0;
+  padding: 0; 
   box-sizing: border-box;
 }
 body{
-  background-color: rgb(22, 3, 3);
+  font-family: 'Orbitron', sans-serif;
+  background-color: #000;
+  color: #fff;
   overflow-x: hidden;
-}
-.navbar{
-  position:sticky;
-  width:100%;
-  height:50px;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0px;
-  padding: 50px;
-  background-color: transparent;
-}
-.navbar .logo h1{
-  color:red;
-  font-size: 40px;
-  text-transform: uppercase;
-}
-.logo{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-
-}
-.navbar .logo img{
-  height:100px;
-  border-radius: 30%;
-  margin-top: 10px;
-  box-shadow: 0 0 15px 10px rgba(100, 2, 2, 0.6);
-  cursor:pointer;
-  animation: enginePulse 4s infinite;
 }
 @keyframes enginePulse {
   0%, 100% { 
@@ -61,17 +32,12 @@ body{
     color: orange;
     text-shadow: 0 0 25px orange, 0 0 40px yellow;
   }
-  /* 0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); } */
 }
 
 .extreme-3d {
   animation: engine 4s infinite;
 }
-/* @keyframes threeD {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
-} */
+
 .navbar .links{
   display:flex;
   align-items: center;
@@ -109,7 +75,7 @@ body{
 }
 .home .container .content{
 top:20%;
-position:absolute;
+position:relative;
 color:#fff;
 padding-left:50px;
 
@@ -123,6 +89,8 @@ padding-left:50px;
   text-shadow: 0 0 10px #ff4d4d;  
 }
 .content .learnMore{
+  position: absolute;
+  right: 10%;
   background:transparent;
   border:2px solid #fff;
   outline:none;
@@ -131,6 +99,20 @@ padding-left:50px;
   border-radius: 5px;
   cursor:pointer;
   margin:20px;
+}
+/* Register Button */
+.register-btn {
+  position: sticky;
+  background: linear-gradient(135deg, #ff6f61, #ff9472);
+  color: white;
+  font-size: 18px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  z-index: 1000; /* Ensure it's above other content */
 }
 .countdown{
   display:flex;
@@ -208,18 +190,7 @@ li:last-child {
   border-bottom: none;
 }
 
-/* Register Button */
-.register-btn {
-  background: linear-gradient(135deg, #ff6f61, #ff9472);
-  color: white;
-  font-size: 18px;
-  padding: 14px 32px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  margin-top: 30px;
-  transition: all 0.3s ease;
-}
+
 
 .register-btn:hover {
   transform: scale(1.05);
@@ -330,13 +301,14 @@ li:last-child {
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem;
-  background: rgba(0, 8, 29, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(81, 203, 238, 0.3);
+  box-shadow: 0 0 20px rgba(109, 209, 236, 0.3);
   color: white;
 }
 
 .form-group {
+  margin-top:1.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -360,7 +332,7 @@ li:last-child {
 .submit-btn {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, #4fc3f7, #01579b);
+  background: linear-gradient(135deg, #6ac5f0, #1c5c8d);
   color: white;
   border: none;
   border-radius: 6px;
@@ -390,9 +362,9 @@ li:last-child {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background: rgba(0, 8, 29, 0.8);
+  background: rgba(0, 0,0, 0.8);
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(81, 203, 238, 0.3);
+  box-shadow: 0 0 20px rgba(81, 238, 199, 0.3);
   color: white;
 }
 
@@ -406,7 +378,6 @@ li:last-child {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #4fc3f7;
   margin-bottom: 1rem;
 }
 
@@ -420,13 +391,14 @@ li:last-child {
   justify-content: center;
   font-size: 3rem;
   margin: 0 auto 1rem;
-  border: 3px solid #4fc3f7;
+  border: 2px solid #4fc3f7;
 }
 
 .team-name {
   color: #4fc3f7;
   font-size: 1.2rem;
   font-style: italic;
+  margin:1rem;
 }
 
 .profile-details {
@@ -437,19 +409,20 @@ li:last-child {
 }
 
 .detail-card {
-  background: rgba(0, 20, 40, 0.5);
+  background: rgba(37, 46, 54, 0.5);
   padding: 1.5rem;
   border-radius: 10px;
-  border-left: 4px solid #4fc3f7;
 }
 
 .detail-card h3 {
   color: #4fc3f7;
-  margin-top: 0;
+  margin-top: 5;
   border-bottom: 1px solid rgba(79, 195, 247, 0.3);
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
-
+.detail-card p{
+  padding:5px;
+}
 .profile-actions {
   display: flex;
   justify-content: center;
@@ -517,12 +490,12 @@ li:last-child {
 }
 
 .team-card {
-  background: rgba(0, 8, 29, 0.8);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid rgba(79, 195, 247, 0.3);
+  border: 1px solid rgba(56, 56, 56, 0.3);
 }
 
 .team-card:hover {
@@ -542,7 +515,7 @@ li:last-child {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #4fc3f7;
+  border: 3px solid #85abbd;
   position: relative;
   z-index: 2;
 }
@@ -577,32 +550,6 @@ li:last-child {
   margin-bottom: 1.5rem;
   line-height: 1.5;
 }
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.social-btn {
-  background: rgba(79, 195, 247, 0.1);
-  border: 1px solid #4fc3f7;
-  color: #4fc3f7;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.social-btn:hover {
-  background: #4fc3f7;
-  color: #000;
-}
-
 .join-team {
   text-align: center;
   margin-top: 3rem;
@@ -793,4 +740,33 @@ li:last-child {
     left: 10px !important;
     right: auto !important;
   }
+} 
+
+/* Animations */
+.glow-on-hover:hover {
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px #4fc3f7; }
+  to { box-shadow: 0 0 20px #4fc3f7, 0 0 30px #4fc3f7; }
+}
+
+/* Badges */
+.badge {
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-left: 8px;
+}
+
+/* Streak Counter */
+.streak-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.7);
+  padding: 5px 10px;
+  border-radius: 20px;
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import WormholeBackground from './backgroundprofile.js';
+import StarBackground from './starbackground';
 
 const Profile = () => {
     const location = useLocation();
@@ -62,7 +62,7 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            <WormholeBackground/>
+            <StarBackground/>
             <div className="profile-header">
                 {userData.avatar ? (
                     <img src={userData.avatar} alt="Profile" className="profile-avatar" />

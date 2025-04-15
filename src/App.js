@@ -1,14 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './navbar.js';
 import Home from './home.js';
 import Login from './login.js';
 import Profile from './profile.js';
 import Team from './team.js';
 import Timeline from './timeline.js';
+import TimelineWrapper from './TimelineWrapper'; // New
+import Day1 from './Day1'; // New
+
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename="/Space-Quiz-Event">
       <div className="App">
         <Navbar/>
         <div className="home">
@@ -18,11 +21,18 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/profile" element={<Profile/>} />
             <Route path="/team" element={<Team/>} />
-            <Route path="/timeline" element={<Timeline/>} />
+            
+            {/* Updated Timeline Route */}
+            <Route path="/timeline" element={<TimelineWrapper />}>
+              <Route index element={<Timeline />} />
+              <Route path="day1" element={<Day1 />} />
+            
+              {/* Add more days as needed */}
+            </Route>
           </Routes>
         </div>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

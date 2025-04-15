@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import  AlienFlyer from './alien.js'
 
+
 const Home = () => {
   const navigate = useNavigate();
   const aboutRef = useRef(null);
@@ -49,6 +50,7 @@ const Home = () => {
     return () => clearInterval(timer); // Cleanup
   }, []);
   const [isExpanded, setIsExpanded] = useState(false);
+  
 
   return (
     <div className="home">
@@ -74,16 +76,14 @@ const Home = () => {
               <span>Seconds</span>
             </div>
           </div>
-          <button type="button" className='learnMore' onClick={handleReadMore} >Learn More ...</button>
           <button onClick={() => navigate('/login')} className="register-btn">Register Now</button>
-
+          <button type="button" className='learnMore' onClick={handleReadMore} >Learn More ...</button>
         </div>
+        
         <img src={rocket} alt="" className='rocket-image' />
         <img src="https://png.pngtree.com/png-vector/20220706/ourmid/pngtree-ufo-alien-png-image_5721652.png" alt="" className='alien'  id="alien"/>
         <AlienFlyer />
       </div>
-      <hr />
-   
       <div ref={aboutRef} className={`event-details ${isHighlighted ? 'highlight' : ''}`}>
         <h2>About the Event</h2>
         <p>

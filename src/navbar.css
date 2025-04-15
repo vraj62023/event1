@@ -1,0 +1,101 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: none;
+    padding: 10px 20px;
+    color: white;
+    position: sticky;  /* Make it sticky */
+    top: 0;  /* Stick it to the top */
+    z-index: 1000;  /* Ensure it stays above other content */
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black to match stars */
+    backdrop-filter: blur(6px); /* Optional: frosted glass effect */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+
+}
+
+.rotate1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.rotate2 {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.fade {
+    opacity: 0;
+}
+
+/* Navbar links */
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #ff5c5c;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #222;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px 0 0 10px;
+        background-color: rgba(0, 0, 0, 0.8); /* Transparent black to match stars */
+        backdrop-filter: blur(5px); /* Optional: frosted glass effect */
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-links a {
+        padding: 10px 0;
+    }
+}

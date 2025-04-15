@@ -51,11 +51,6 @@ const Team = () => {
             <h3>{member.name}</h3>
             <p className="role">{member.role}</p>
             <p className="bio">{member.bio}</p>
-            <div className="social-links">
-              <button className="social-btn">🌌</button>
-              <button className="social-btn">🚀</button>
-              <button className="social-btn">🛰️</button>
-            </div>
           </div>
         ))}
       </div>

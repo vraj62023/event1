@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BlackHoleBackground from './backgroundlogin.js';
+import StarBackground from './starbackground';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -45,7 +45,7 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <BlackHoleBackground/>
+            <StarBackground/>
             <h2>{isRegistering ? 'Register for Space Quiz' : 'Space Quiz Login'}</h2>
 
             <form onSubmit={handleSubmit}>
