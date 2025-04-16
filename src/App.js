@@ -11,12 +11,12 @@ import Day1 from './Day1'; // New
 
 function App() {
   return (
-    <BrowserRouter basename="/Space-Quiz-Event">
+    <BrowserRouter basename="/event1">
       <div className="App">
         <Navbar/>
         <div className="home">
           <Routes>
-            <Route path='/Space-Quiz-Event' element={<Home />} />
+            <Route path='/event1' element={<Home />} />
             <Route path='/' element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/profile" element={<Profile/>} />
