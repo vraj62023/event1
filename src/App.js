@@ -26,6 +26,9 @@ function App() {
             <Route path="/timeline" element={<TimelineWrapper />}>
               <Route index element={<Timeline />} />
               <Route path="day1" element={<Day1 />} />
+              <Route path="day2" element={<Day1 />} />
+              <Route path="day3" element={<Day1 />} />
+              <Route path="day4" element={<Day1 />} />
             
               {/* Add more days as needed */}
             </Route>

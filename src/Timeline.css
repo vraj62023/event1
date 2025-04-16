@@ -1,79 +1,252 @@
-.days-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 30px;
-    perspective: 1000px;
+/* Updated CSS */
+.timeline-container {
+  min-height:100vh;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.timeline-title {
+  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 3rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+
+.timeline-orbs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.orb-link {
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  max-width:100%;
+  display: flex;
+  justify-content: center;
+  transition:all 3s ease-in-out;
+}
+
+.orb-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.orb {
+  width: 180px;
+  height: 180px;
+  border-radius: 125%;
+  background: radial-gradient(circle, #55f 30%, #222 80%);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.orb-inner-glow {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 125%;
+  background: radial-gradient(circle, #fff3, #0000);
+  pointer-events: none;
+}
+
+.orb-text {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+.orb-day {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff0;
+}
+
+.orb-date {
+  font-size: 0.9rem;
+  color: #0ff;
+}
+
+.orb-title {
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 0.3rem;
+}
+
+.event-description {
+  position: absolute;
+  padding: 1rem;
+  background: rgba(0, 0, 125, 0.7);
+  border-radius: 10px;
+  border: 1px solid #0ff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  font-family: 'Arial', sans-serif;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.4s ease 0.2s; /* Delayed appearance */
+  z-index: 1;
+  width: 25vw;
+  color:white;
+}
+
+.orb-link:hover .orb {
+  transform: translateX(-125%) scale(1.1);
+  box-shadow: 0 0 40px #ff0, 0 0 60px #ff0 inset;
+}
+
+.orb-link:hover .event-description {
+  opacity: 1;
+  transform: translateX(40%);
+}
+
+/* Vertical line */
+.timeline-orbs::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0ff, #00f, #f0f);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Connector lines for even items */
+.orb-link:nth-child(even) .event-description {
+  left: auto;
+  right: 20%;
+}
+
+.orb-link:nth-child(even):hover .orb {
+  transform: translateX(125%) scale(1.1);
+}
+
+.orb-link:nth-child(even) .event-description {
+  transform: translateX(40px);
+}
+
+.orb-link:nth-child(even):hover .event-description {
+  transform: translateX(-70px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .timeline-container {
+    padding: 2rem 1rem;
   }
-  
-  .day-card {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 16px;
-    padding: 25px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-decoration: none;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 15px rgba(104, 178, 255, 0.2);
-    transform-style: preserve-3d;
-    position: relative;
-    overflow: hidden;
-    margin:15px;
+
+  .timeline-title {
+    font-size: 2.5rem;
   }
-  
-  .day-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(79, 195, 247, 0.1) 0%, transparent 70%);
-    transform: rotate(30deg);
-    transition: all 0.6s ease;
+
+  .timeline-orbs {
+    gap: 3rem;
   }
-  
-  .day-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    background: rgba(0, 0, 0, 0.3);
-    box-shadow: 
-      0 12px 40px rgba(46, 45, 45, 0.4),
-      inset 0 0 15px rgba(73, 72, 72, 0.1);
+
+  .orb {
+    width: 150px;
+    height: 150px;
   }
-  
-  .day-card:hover::before {
-    transform: rotate(30deg) translate(20px, 20px);
+
+  .event-description {
+    width: 30vw;
   }
-  
-  .day-number {
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 2rem 0.5rem;
+  }
+
+  .timeline-title {
+    font-size: 2rem;
+  }
+
+  .timeline-orbs {
+    gap: 2.5rem;
+  }
+
+  .orb {
+    width: 120px;
+    height: 120px;
+  }
+
+  .event-description {
+    width: 35vw;
+  }
+
+  /* Adjust the connector lines for smaller screens */
+  .timeline-orbs::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .orb-link {
+    width: 100%;
+  }
+
+  .orb-link:nth-child(even) .event-description {
+    right: 0;
+    left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .timeline-title {
     font-size: 1.8rem;
-    font-weight: bold;
-    color: #919799;
-    box-shadow:   0 0 8px rgba(88, 89, 90, 0.2);
-    margin-bottom: 5px;
-    position: relative;
-    z-index: 1;
   }
-  
-  .day-date {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 8px 0 15px;
-    position: relative;
-    z-index: 1;
+
+  .timeline-orbs {
+    gap: 2rem;
   }
-  
-  .day-title {
-    font-size: 1.3rem;
-    color: white;
-    margin-top: 15px;
-    position: relative;
-    z-index: 1;
+
+  .orb {
+    width: 100px;
+    height: 100px;
   }
-  
+
+  .event-description {
+    width: 40vw;
+    font-size: 0.9rem;
+  }
+
+  .orb-link:hover .orb {
+    transform: translateX(-100%) scale(1.05);
+  }
+
+  .orb-link:nth-child(even):hover .orb {
+    transform: translateX(100%) scale(1.05);
+  }
+}
+
+
+
+
+
+
   /* Day Details Page */
   .day-details {
     padding: 20px;
