@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   const calculateTimeLeft = () => {
-    const targetDate = new Date('2025-05-01T00:00:00'); // 🔧 change to your desired date
+    const targetDate = new Date('2025-05-18T00:00:00'); // 🔧 change to your desired date
     const now = new Date();
     const difference = targetDate - now;
 

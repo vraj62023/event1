@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Timeline.css";
-import StarBackground from "./starbackground";
+
 
 const Timeline = () => {
   const eventDays = [
@@ -32,26 +32,32 @@ const Timeline = () => {
 
   return (
     <div className="timeline-container">
-      <StarBackground />
+  
       <h1 className="timeline-title">🚀 Event Timeline</h1>
       <div className="timeline-orbs">
-        {eventDays.map(({ day, date, title, description }) => (
-          <Link to={`day${day}`} key={day} className="orb-link">
-            <div className="orb-wrapper">
-              <div className="orb">
-                <div className="orb-inner-glow" />
-                <div className="orb-text">
-                  <div className="orb-day">Day {day}</div>
-                  <div className="orb-date">{date}</div>
-                  <div className="orb-title">{title}</div>
+        {eventDays.map(({ day, date, title, description }, index) => {
+          const angle = index * (360 / eventDays.length);
+          return (
+            <Link
+              to={`day${day}`}
+              key={day}
+              className="orb-link"
+              style={{ '--angle': `${angle}deg` }}
+            >
+              <div className="orb-wrapper">
+                <div className="orb">
+                  <div className="orb-inner-glow" />
+                  <div className="orb-text">
+                    <div className="orb-day">Day {day}</div>
+                    <div className="orb-date">{date}</div>
+                    <div className="orb-title">{title}</div>
+                  </div>
                 </div>
+                <div className="event-description">{description}</div>
               </div>
-              <div className="event-description">
-                {description}
-              </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
